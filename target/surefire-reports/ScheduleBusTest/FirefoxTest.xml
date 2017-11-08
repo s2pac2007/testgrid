@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite hostname="tylr-alekseyst" name="testgrid.TestGridClass" tests="1" failures="0" timestamp="8 Nov 2017 12:32:48 GMT" time="8.994" errors="0">
+  <testcase name="calculatepercent" time="3.202" classname="testgrid.TestGridClass"/>
+</testsuite>
