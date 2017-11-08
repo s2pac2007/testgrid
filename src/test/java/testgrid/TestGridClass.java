@@ -78,7 +78,8 @@ public class TestGridClass {
 	@Test
 	public void calculatepercent() {
 		//driver.navigate().to("https://www.google.com");
-		driver.get("https://www.google.com");
+		driver.get("https://www.youtube.com/watch?v=KPQhbSKx0E8");
+		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
 		
 	System.out.println("Launched page https://www.google.com");
     boolean title = driver.getTitle() == "Google class";
