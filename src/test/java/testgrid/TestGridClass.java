@@ -79,23 +79,23 @@ public class TestGridClass {
 		//driver.navigate().to("https://www.google.com");
 		driver.get("https://www.youtube.com/watch?v=KPQhbSKx0E8");
 		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
-		Thread.sleep(600000);
+		Thread.sleep(300000);
 		
 		driver.get("https://youtu.be/e0_CiFfa5pM");
   		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
-		Thread.sleep(600000);
+		Thread.sleep(300000);
 		
 		driver.get("https://www.youtube.com/watch?v=2BBw6xX5858");
   		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
-		Thread.sleep(600000);
+		Thread.sleep(300000);
 		
 		driver.get("https://www.youtube.com/watch?v=yKeXgQ5yDAM");
   		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
-		Thread.sleep(600000);
+		Thread.sleep(300000);
 		
 		driver.get("https://www.youtube.com/watch?v=e0_CiFfa5pM");
   		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
-		Thread.sleep(600000);
+		Thread.sleep(300000);
 		
 	//System.out.println("Launched page https://www.google.com");
 	// boolean title = driver.getTitle() == "Google class";
