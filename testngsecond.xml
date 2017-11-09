@@ -2,7 +2,7 @@
  <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="ScheduleBusTest" parallel="tests" thread-count="5">
    <test name="FirefoxTest">
-   <parameter name="browser"  value="firefox" />
+   <parameter name="browser"  value="chrome" />
    <parameter name="pr"  value="no" />
       <classes>
             <class name="testgrid.TestGridClass" />
