@@ -65,7 +65,7 @@ public class TestGridClass {
 			System.setProperty("webdriver.chrome.driver", "/usr/bin/google-chrome");
 			driver = new RemoteWebDriver(new URL(Node), cap);
 			//driver = new RemoteWebDriver(new URL(Node), options.ToCapabilities());
-			driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 			// Launch website
 			//driver.navigate().to(URL);
@@ -81,23 +81,23 @@ public class TestGridClass {
 		driver.get("https://www.youtube.com/watch?v=KPQhbSKx0E8");
 		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
 		
-	System.out.println("Launched page https://www.google.com");
-    boolean title = driver.getTitle() == "Google class";
-	System.out.println(driver.getTitle()+" class");
-
-    if(title)
-
-        System.out.println("I am working correctly");
-
-    else if(!title)
-
-        System.out.println("I am braiken!");
-	}
-  
 		driver.get("https://youtu.be/e0_CiFfa5pM");
-  
-  driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
-  
+  		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+		
+	//System.out.println("Launched page https://www.google.com");
+	// boolean title = driver.getTitle() == "Google class";
+	//System.out.println(driver.getTitle()+" class");
+
+    //if(title)
+
+      //  System.out.println("I am working correctly");
+
+    //else if(!title)
+
+      //  System.out.println("I am braiken!");
+	
+
+	}
 	@AfterTest
 	public void closeBrowser() {
 		 driver.quit();
