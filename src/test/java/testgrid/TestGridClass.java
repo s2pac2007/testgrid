@@ -87,17 +87,12 @@ public class TestGridClass {
 	//System.out.println("Launched page https://www.google.com");
 	// boolean title = driver.getTitle() == "Google class";
 	//System.out.println(driver.getTitle()+" class");
-
     //if(title)
-
-      //  System.out.println("I am working correctly");
-
+    //  System.out.println("I am working correctly");
     //else if(!title)
+	//  System.out.println("I am braiken!");
 
-      //  System.out.println("I am braiken!");
-	
-
-	}
+		}
 	@AfterTest
 	public void closeBrowser() {
 		 driver.quit();
