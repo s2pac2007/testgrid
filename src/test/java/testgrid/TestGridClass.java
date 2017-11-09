@@ -49,30 +49,7 @@ public class TestGridClass {
 		}  else {
 			throw new IllegalArgumentException("The Browser Type is Undefined");
 		}
-		
-		if (pr.equalsIgnoreCase("yes")) {
-		//Proxy
-			System.out.println("Proxy yes");
-			String url = "190.0.0.174:8080";
-			Proxy proxy = new Proxy();
-			proxy.setProxyType(ProxyType.MANUAL);
-			proxy.setHttpProxy(url);			
-			String Node = "http://192.168.137.129:4444/wd/hub";
-			DesiredCapabilities cap = DesiredCapabilities.firefox();
-			cap.setCapability(CapabilityType.PROXY,proxy);
-			driver = new RemoteWebDriver(new URL(Node), cap);
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		} else if (browser.equalsIgnoreCase("no")) {
-			String Node = "http://192.168.137.129:4444/wd/hub";
-			DesiredCapabilities cap = DesiredCapabilities.firefox();
-			cap.setBrowserName("firefox");
-			driver = new RemoteWebDriver(new URL(Node), cap);
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		}  else {
-			throw new IllegalArgumentException("www");
-		}
-		
-	}
+
 
 	@Test
 	public void calculatepercent() throws InterruptedException {
