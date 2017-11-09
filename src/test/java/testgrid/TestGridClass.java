@@ -52,10 +52,12 @@ public class TestGridClass {
 		
 		if (pr.equalsIgnoreCase("yes")) {
 		//Proxy
-			String url = "42.117.1.78:3128";
+			System.out.println("Proxy yes");
+			String url = "190.0.0.174:8080";
 			Proxy proxy = new Proxy();
 			proxy.setProxyType(ProxyType.MANUAL);
-			proxy.setHttpProxy(url);
+			proxy.setHttpProxy(url);			
+			String Node = "http://192.168.137.129:4444/wd/hub";
 			DesiredCapabilities cap = DesiredCapabilities.firefox();
 			cap.setCapability(CapabilityType.PROXY,proxy);
 			driver = new RemoteWebDriver(new URL(Node), cap);
@@ -67,7 +69,7 @@ public class TestGridClass {
 			driver = new RemoteWebDriver(new URL(Node), cap);
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		}  else {
-			throw new IllegalArgumentException("The Browser Type is Undefined");
+			throw new IllegalArgumentException("www");
 		}
 		
 	}
