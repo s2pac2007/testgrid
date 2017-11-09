@@ -49,7 +49,7 @@ public class TestGridClass {
 		}  else {
 			throw new IllegalArgumentException("The Browser Type is Undefined");
 		}
-
+	}
 
 	@Test
 	public void calculatepercent() throws InterruptedException {
