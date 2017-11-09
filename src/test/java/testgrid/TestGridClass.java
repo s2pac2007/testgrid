@@ -3,6 +3,7 @@ package testgrid;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
+import java.lang.InterruptedException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -33,20 +34,18 @@ public class TestGridClass {
 			String Node = "http://192.168.137.129:4444/wd/hub";
 			DesiredCapabilities cap = DesiredCapabilities.firefox();
 			cap.setBrowserName("firefox");
-
 			driver = new RemoteWebDriver(new URL(Node), cap);
 			// Puts an Implicit wait, Will wait for 10 seconds before throwing
 			// exception
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
 			// Launch website
 			//driver.navigate().to(URL);
 			//driver.manage().window().maximize();
 		} else if (browser.equalsIgnoreCase("chrome")) {
 			System.out.println(" Executing on CHROME");
-	//	ChromeDriverManager.getInstance().setup();
-		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--headless", "--disable-gpu");
+		//ChromeDriverManager.getInstance().setup();
+		//ChromeOptions options = new ChromeOptions();
+		//options.addArguments("--headless", "--disable-gpu");
 		DesiredCapabilities cap = DesiredCapabilities.chrome();
 		cap.setBrowserName("chrome");
 		//cap.setVersion("62");
@@ -69,20 +68,34 @@ public class TestGridClass {
 
 			// Launch website
 			//driver.navigate().to(URL);
-			driver.manage().window().maximize();
+			//driver.manage().window().maximize();
 		}  else {
 			throw new IllegalArgumentException("The Browser Type is Undefined");
 		}
 	}
 
 	@Test
-	public void calculatepercent() {
+	public void calculatepercent() throws InterruptedException {
 		//driver.navigate().to("https://www.google.com");
 		driver.get("https://www.youtube.com/watch?v=KPQhbSKx0E8");
 		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+		Thread.sleep(600000);
 		
 		driver.get("https://youtu.be/e0_CiFfa5pM");
   		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+		Thread.sleep(600000);
+		
+		driver.get("https://www.youtube.com/watch?v=2BBw6xX5858");
+  		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+		Thread.sleep(600000);
+		
+		driver.get("https://www.youtube.com/watch?v=yKeXgQ5yDAM");
+  		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+		Thread.sleep(600000);
+		
+		driver.get("https://www.youtube.com/watch?v=e0_CiFfa5pM");
+  		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+		Thread.sleep(600000);
 		
 	//System.out.println("Launched page https://www.google.com");
 	// boolean title = driver.getTitle() == "Google class";
