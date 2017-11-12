@@ -28,10 +28,10 @@ public class TestGridClassSecond {
 	public String URL, Node;
 	protected ThreadLocal<RemoteWebDriver> threadDriver = null;
 //	String browser = "firefox";
-	@Parameters({"browser","pr"})
+	@Parameters({"browser","pr","Nodeurl"})
 		
 	@BeforeTest
-	public void launchbrowser(String browser,String pr) throws MalformedURLException {
+	public void launchbrowser(String browser,String pr, String Nodeurl) throws MalformedURLException {
 		//String URL = "http://www.calculator.net";
 
 		if (browser.equalsIgnoreCase("firefox")) {

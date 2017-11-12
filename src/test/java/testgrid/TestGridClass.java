@@ -28,7 +28,7 @@ public class TestGridClass {
 	public String URL, Node;
 	protected ThreadLocal<RemoteWebDriver> threadDriver = null;
 //	String browser = "firefox";
-	@Parameters({"browser","pr", "Nodeurl"})
+	@Parameters({"browser","pr","Nodeurl"})
 		
 	@BeforeTest
 	public void launchbrowser(String browser,String pr, String Nodeurl) throws MalformedURLException {
