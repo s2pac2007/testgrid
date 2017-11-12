@@ -43,6 +43,12 @@ public class TestGridClass {
 			System.out.println(" Executing on CHROME");
 			DesiredCapabilities cap = DesiredCapabilities.chrome();
 			cap.setBrowserName("chrome");
+			cap.setPlatform(Platform.LINUX);
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("disable-infobars");
+			options.addArguments(Arrays.asList("--window-position=0,0"));	 		
+			options.addArguments(Arrays.asList("--window-size=1920,1080"));
+			cap.setCapability(ChromeOptions.CAPABILITY, options);
 			String Node = "http://kx6186hRdVVgFj7Pf5vUNt4ivRTv5Mzg:aw88tgQx1BDxLBcQxxBaRvidc2y8FYeF@44CH9W50.gridlastic.com:80/wd/hub";
 			driver = new RemoteWebDriver(new URL(Node), cap);
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
