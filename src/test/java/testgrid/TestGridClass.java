@@ -43,7 +43,7 @@ public class TestGridClass {
 			System.out.println(" Executing on CHROME");
 			DesiredCapabilities cap = DesiredCapabilities.chrome();
 			cap.setBrowserName("chrome");
-			String Node = "http://192.168.137.129:4444/wd/hub";
+			String Node = "http://kx6186hRdVVgFj7Pf5vUNt4ivRTv5Mzg:aw88tgQx1BDxLBcQxxBaRvidc2y8FYeF@44CH9W50.gridlastic.com:80/wd/hub";
 			driver = new RemoteWebDriver(new URL(Node), cap);
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		}  else {
