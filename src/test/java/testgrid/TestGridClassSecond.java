@@ -42,7 +42,7 @@ public class TestGridClassSecond {
 			driver = new RemoteWebDriver(new URL(Node), cap);
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		} else if (browser.equalsIgnoreCase("chrome")) {
-			System.out.println(" Executing on CHROME");
+			System.out.println(" Executing on Firefox");
 			DesiredCapabilities cap = DesiredCapabilities.chrome();
 			cap.setBrowserName("firefox");
 			cap.setPlatform(Platform.WIN10);

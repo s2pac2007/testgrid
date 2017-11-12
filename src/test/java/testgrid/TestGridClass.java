@@ -28,10 +28,10 @@ public class TestGridClass {
 	public String URL, Node;
 	protected ThreadLocal<RemoteWebDriver> threadDriver = null;
 //	String browser = "firefox";
-	@Parameters({"browser","pr"})
+	@Parameters({"browser","pr", "Nodeurl"})
 		
 	@BeforeTest
-	public void launchbrowser(String browser,String pr) throws MalformedURLException {
+	public void launchbrowser(String browser,String pr, String Nodeurl) throws MalformedURLException {
 		//String URL = "http://www.calculator.net";
 
 		if (browser.equalsIgnoreCase("firefox")) {
@@ -54,7 +54,20 @@ public class TestGridClass {
 			String Node = "http://VnJdYspX86LUiKJZdHRyIkd70FXAgEt1:R35Flktkg54pGEfJcW8K6bHXGvnNZHEG@44CH9W50.gridlastic.com:80/wd/hub";
 			driver = new RemoteWebDriver(new URL(Node), cap);
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		}  else {
+		} else if (browser.equalsIgnoreCase("vista")) {
+			System.out.println(" Executing on CHROME in Vista");
+			DesiredCapabilities cap = DesiredCapabilities.chrome();
+			cap.setBrowserName("chrome");
+			cap.setPlatform(Platform.VISTA);
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("disable-infobars");
+			options.addArguments(Arrays.asList("--window-position=0,0"));	 		
+			options.addArguments(Arrays.asList("--window-size=1920,1080"));
+			cap.setCapability(ChromeOptions.CAPABILITY, options);
+			//String Node = "http://VnJdYspX86LUiKJZdHRyIkd70FXAgEt1:R35Flktkg54pGEfJcW8K6bHXGvnNZHEG@44CH9W50.gridlastic.com:80/wd/hub";
+			driver = new RemoteWebDriver(new URL(Nodeurl), cap);
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		} else {
 			throw new IllegalArgumentException("The Browser Type is Undefined");
 		}
 	}
