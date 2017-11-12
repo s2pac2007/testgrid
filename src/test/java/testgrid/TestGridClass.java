@@ -35,14 +35,14 @@ public class TestGridClass {
 		//String URL = "http://www.calculator.net";
 
 		if (browser.equalsIgnoreCase("firefox")) {
-			System.out.println(" Executing on FireFox");
+			System.out.println(" Executing on FireFox in VM");
 			String Node = "http://192.168.137.129:4444/wd/hub";
 			DesiredCapabilities cap = DesiredCapabilities.firefox();
 			cap.setBrowserName("firefox");
 			driver = new RemoteWebDriver(new URL(Node), cap);
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		} else if (browser.equalsIgnoreCase("chrome")) {
-			System.out.println(" Executing on CHROME");
+			System.out.println(" Executing on CHROME in Lunix");
 			DesiredCapabilities cap = DesiredCapabilities.chrome();
 			cap.setBrowserName("chrome");
 			cap.setPlatform(Platform.LINUX);
@@ -51,8 +51,7 @@ public class TestGridClass {
 			options.addArguments(Arrays.asList("--window-position=0,0"));	 		
 			options.addArguments(Arrays.asList("--window-size=1920,1080"));
 			cap.setCapability(ChromeOptions.CAPABILITY, options);
-			String Node = "http://VnJdYspX86LUiKJZdHRyIkd70FXAgEt1:R35Flktkg54pGEfJcW8K6bHXGvnNZHEG@44CH9W50.gridlastic.com:80/wd/hub";
-			driver = new RemoteWebDriver(new URL(Node), cap);
+			driver = new RemoteWebDriver(new URL(Nodeurl), cap);
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		} else if (browser.equalsIgnoreCase("vista")) {
 			System.out.println(" Executing on CHROME in Vista");
@@ -64,10 +63,22 @@ public class TestGridClass {
 			options.addArguments(Arrays.asList("--window-position=0,0"));	 		
 			options.addArguments(Arrays.asList("--window-size=1920,1080"));
 			cap.setCapability(ChromeOptions.CAPABILITY, options);
-			//String Node = "http://VnJdYspX86LUiKJZdHRyIkd70FXAgEt1:R35Flktkg54pGEfJcW8K6bHXGvnNZHEG@44CH9W50.gridlastic.com:80/wd/hub";
 			driver = new RemoteWebDriver(new URL(Nodeurl), cap);
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		} else {
+		} else if (browser.equalsIgnoreCase("win10")) {
+			System.out.println(" Executing on CHROME in Winows 10");
+			DesiredCapabilities cap = DesiredCapabilities.chrome();
+			cap.setBrowserName("chrome");
+			cap.setPlatform(Platform.WIN10);
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("disable-infobars");
+			options.addArguments(Arrays.asList("--window-position=0,0"));	 		
+			options.addArguments(Arrays.asList("--window-size=1920,1080"));
+			cap.setCapability(ChromeOptions.CAPABILITY, options);
+			driver = new RemoteWebDriver(new URL(Nodeurl), cap);
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		}
+		else {
 			throw new IllegalArgumentException("The Browser Type is Undefined");
 		}
 	}
