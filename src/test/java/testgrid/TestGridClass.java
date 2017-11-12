@@ -4,9 +4,11 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 import java.lang.InterruptedException;
+import java.util.Arrays;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.RemoteWebDriver;
