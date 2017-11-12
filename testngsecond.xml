@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
  <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="ScheduleBusTest" parallel="tests" thread-count="5">
-   <test name="FirefoxTest">
+   <test name="FirefoxTest" parallel="methods">
    <parameter name="browser"  value="chrome" />
    <parameter name="pr"  value="no" />
       <classes>
             <class name="testgrid.TestGridClass" />
+      </classes>
+   </test>
+   <test name="Chrome" parallel="methods">
+   <parameter name="browser"  value="chrome" />
+   <parameter name="pr"  value="no" />
+      <classes>
+            <class name="testgrid.TestGridClassSecond" />
       </classes>
    </test>
 </suite>
