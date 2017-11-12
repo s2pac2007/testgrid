@@ -33,5 +33,4 @@
       <class name="testgrid.TestGridClass" />
     </classes>
    </test>
-   </test>
 </suite>
