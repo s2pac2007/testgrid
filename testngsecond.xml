@@ -15,7 +15,7 @@
             <class name="testgrid.TestGridClassSecond" />
       </classes>
    </test>
-   <test name="Chrome" parallel="methods">
+   <test name="Chrome+Vista" parallel="methods">
    <parameter name="browser"  value="vista" />
    <parameter name="Nodeurl"  value="http://VnJdYspX86LUiKJZdHRyIkd70FXAgEt1:R35Flktkg54pGEfJcW8K6bHXGvnNZHEG@44CH9W50.gridlastic.com:80/wd/hub" />
       <classes>
