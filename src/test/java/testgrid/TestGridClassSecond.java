@@ -23,7 +23,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.Proxy;
 import org.openqa.selenium.Proxy.ProxyType;
 
-public class TestGridClass {
+public class TestGridClassSecond {
 	public WebDriver driver;
 	public String URL, Node;
 	protected ThreadLocal<RemoteWebDriver> threadDriver = null;
