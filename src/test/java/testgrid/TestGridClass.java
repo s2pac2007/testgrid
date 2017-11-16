@@ -86,33 +86,33 @@ public class TestGridClass {
 	@Test
 	public void calculatepercent() throws InterruptedException {
 		
-		driver.get("https://www.youtube.com/watch?v=KPQhbSKx0E8");
-		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
-		Thread.sleep(60000);
+		//driver.get("https://www.youtube.com/watch?v=KPQhbSKx0E8");
+		//driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+		//Thread.sleep(120000);
+		
+		//driver.get("https://youtu.be/e0_CiFfa5pM");
+  		//driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+		//Thread.sleep(60000);
+		
+		driver.get("https://youtu.be/OdpR6zyCwGA");
+  		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+		Thread.sleep(120000);
+		
+		//driver.get("https://www.youtube.com/watch?v=yKeXgQ5yDAM");
+  		//driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+		//Thread.sleep(60000);
 		
 		driver.get("https://youtu.be/e0_CiFfa5pM");
   		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
-		Thread.sleep(60000);
+		Thread.sleep(120000);
 		
-		driver.get("https://www.youtube.com/watch?v=2BBw6xX5858");
-  		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
-		Thread.sleep(60000);
+		//driver.get("https://youtu.be/GBaWeA9cLDU");
+  		//driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+		//Thread.sleep(60000);
 		
-		driver.get("https://www.youtube.com/watch?v=yKeXgQ5yDAM");
+		driver.get("https://youtu.be/KPQhbSKx0E8");
   		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
-		Thread.sleep(60000);
-		
-		driver.get("https://www.youtube.com/watch?v=e0_CiFfa5pM");
-  		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
-		Thread.sleep(60000);
-		
-		driver.get("https://youtu.be/GBaWeA9cLDU");
-  		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
-		Thread.sleep(60000);
-		
-		driver.get("https://www.youtube.com/watch?v=GBaWeA9cLDU");
-  		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
-		Thread.sleep(60000);
+		Thread.sleep(120000);
 		
 		
 		
