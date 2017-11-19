@@ -39,6 +39,7 @@ public class TestGridClass {
 			String Node = "http://192.168.137.129:4444/wd/hub";
 			DesiredCapabilities cap = DesiredCapabilities.firefox();
 			cap.setBrowserName("firefox");
+			cap.setCapability("marionette", false);
 			driver = new RemoteWebDriver(new URL(Node), cap);
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		} else if (browser.equalsIgnoreCase("chrome")) {
