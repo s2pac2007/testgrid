@@ -117,11 +117,25 @@ public class TestGridClass {
   		//driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
 		//Thread.sleep(60000);
 		
-		driver.get("https://youtu.be/KPQhbSKx0E8");
+		driver.get("https://www.idupesh.com/");
   		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
-		Thread.sleep(120000);
+		Thread.sleep(60000);
+		
+		driver.get("https://www.idupesh.com/articles/6-v8-supercars-newcastle-500.html");
+  		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+		Thread.sleep(60000);
+		
+		driver.get("https://www.idupesh.com/articles/7-looking-up-into-a-tree-at-tokyo-s-shinjuku-gyoen-park.html");
+  		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+		Thread.sleep(60000);
+		
+		driver.get("https://www.idupesh.com/articles/8-jamie-whincup-is-the-2017-supercars-champion-after-a-controversial-final-race-that-saw-scott-mclaughlin-lose-the-title-through-a-post-race-penalty-click-for-full-results.html");
+  		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+		Thread.sleep(60000);
 		
 		
+		
+
 		
 
 		}
