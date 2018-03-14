@@ -46,6 +46,8 @@ public class TestGridClassArray {
 	public WebDriver driver;
 	public String URL, Node;
 	protected ThreadLocal<RemoteWebDriver> threadDriver = null;
+	private boolean acceptNextAlert = true;
+	private StringBuffer verificationErrors = new StringBuffer();
 //	String browser = "firefox";
 	@Parameters({"browser","pr","Nodeurl"})
 	
@@ -62,7 +64,13 @@ public class TestGridClassArray {
 			cap.setCapability("marionette", false);
 			driver = new RemoteWebDriver(new URL(Node), cap);
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		} else if (browser.equalsIgnoreCase("chrome")) {
+		} else if (browser.equalsIgnoreCase("local")){
+			driver = new ChromeDriver();	
+			File file = new File("./chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
+			String ExpTitle = "Welcome: Mercury Tours";
+		}
+		else if (browser.equalsIgnoreCase("chrome")) {
 			System.out.println(" Executing on CHROME in Lunix");
 			DesiredCapabilities cap = DesiredCapabilities.chrome();
 			cap.setBrowserName("chrome");
@@ -195,7 +203,7 @@ public class TestGridClassArray {
 
 	
 	
-	@Test
+	//@Test
 	public void idupeshcomLinks() throws InterruptedException {
 		
 //Sdelal vlogenniy tsikl po adresam kotorue vabirautsya psevdosluchayno in zadannogo macciva.
