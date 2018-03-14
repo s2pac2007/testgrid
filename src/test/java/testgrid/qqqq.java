@@ -3,14 +3,14 @@ package testgrid;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeUnit;
-import java.util.List;
+import java.lang.InterruptedException;
 import java.util.Arrays;
+import java.lang.Math;
 import java.util.Map;
 import java.util.regex.Pattern;
-import java.lang.InterruptedException;
-import java.lang.Math;
 import java.io.File;
+import java.util.concurrent.TimeUnit;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -42,7 +42,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 
 
-public class TestGridClassArray {
+public class qqqq {
 	public WebDriver driver;
 	public String URL, Node;
 	protected ThreadLocal<RemoteWebDriver> threadDriver = null;
@@ -50,62 +50,10 @@ public class TestGridClassArray {
 	@Parameters({"browser","pr","Nodeurl"})
 	
 	
-	@BeforeTest
-	public void launchbrowser(String browser,String pr, String Nodeurl) throws MalformedURLException {
-		//String URL = "http://www.calculator.net";
-
-		if (browser.equalsIgnoreCase("firefox")) {
-			System.out.println(" Executing on FireFox in VM");
-			String Node = "http://192.168.137.129:4444/wd/hub";
-			DesiredCapabilities cap = DesiredCapabilities.firefox();
-			cap.setBrowserName("firefox");
-			cap.setCapability("marionette", false);
-			driver = new RemoteWebDriver(new URL(Node), cap);
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		} else if (browser.equalsIgnoreCase("chrome")) {
-			System.out.println(" Executing on CHROME in Lunix");
-			DesiredCapabilities cap = DesiredCapabilities.chrome();
-			cap.setBrowserName("chrome");
-			cap.setPlatform(Platform.LINUX);
-			ChromeOptions options = new ChromeOptions();
-			options.addArguments("disable-infobars");
-			options.addArguments(Arrays.asList("--window-position=0,0"));	 		
-			options.addArguments(Arrays.asList("--window-size=1920,1080"));
-			cap.setCapability(ChromeOptions.CAPABILITY, options);
-			driver = new RemoteWebDriver(new URL(Nodeurl), cap);
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		} else if (browser.equalsIgnoreCase("vista")) {
-			System.out.println(" Executing on CHROME in Vista");
-			DesiredCapabilities cap = DesiredCapabilities.chrome();
-			cap.setBrowserName("chrome");
-			cap.setPlatform(Platform.VISTA);
-			ChromeOptions options = new ChromeOptions();
-			options.addArguments("disable-infobars");
-			options.addArguments(Arrays.asList("--window-position=0,0"));	 		
-			options.addArguments(Arrays.asList("--window-size=1920,1080"));
-			cap.setCapability(ChromeOptions.CAPABILITY, options);
-			driver = new RemoteWebDriver(new URL(Nodeurl), cap);
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		} else if (browser.equalsIgnoreCase("win10")) {
-			System.out.println(" Executing on CHROME in Winows 10");
-			DesiredCapabilities cap = DesiredCapabilities.chrome();
-			cap.setBrowserName("chrome");
-			cap.setPlatform(Platform.WIN10);
-			ChromeOptions options = new ChromeOptions();
-			options.addArguments("disable-infobars");
-			options.addArguments(Arrays.asList("--window-position=0,0"));	 		
-			options.addArguments(Arrays.asList("--window-size=1920,1080"));
-			cap.setCapability(ChromeOptions.CAPABILITY, options);
-			driver = new RemoteWebDriver(new URL(Nodeurl), cap);
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		}
-		//else {
-		//	throw new IllegalArgumentException("The Browser Type is Undefined");
-		//}
-	}
+	
 
 	@Test
-	public void idupeshcomMenu() throws Exception {
+	public void testLogin() throws Exception {
 	String baseUrl = "http://idupesh.com";
 	driver.get(baseUrl + "/");
 	List<WebElement> elems = driver.findElements(By.xpath("//ul[@id='dj-megamenu145']/li"));
@@ -196,7 +144,7 @@ public class TestGridClassArray {
 	
 	
 	@Test
-	public void idupeshcomLinks() throws InterruptedException {
+	public void calculatepercent() throws InterruptedException {
 		
 //Sdelal vlogenniy tsikl po adresam kotorue vabirautsya psevdosluchayno in zadannogo macciva.
 //Neobhodomo dodelat chtobu adresa zapolnyalu massiv avtovatichesski iz xml.
