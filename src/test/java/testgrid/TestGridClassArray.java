@@ -38,7 +38,11 @@ import org.testng.annotations.*;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-
+import org.testng.annotations.Test;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
 
 
 
@@ -50,8 +54,7 @@ public class TestGridClassArray {
 	private StringBuffer verificationErrors = new StringBuffer();
 //	String browser = "firefox";
 	@Parameters({"browser","pr","Nodeurl"})
-	
-	
+		
 	@BeforeTest
 	public void launchbrowser(String browser,String pr, String Nodeurl) throws MalformedURLException {
 		//String URL = "http://www.calculator.net";
@@ -203,7 +206,7 @@ public class TestGridClassArray {
 
 	
 	
-	//@Test
+	@Test (dependsOnMethods={"idupeshcomMenu"})
 	public void idupeshcomLinks() throws InterruptedException {
 		
 //Sdelal vlogenniy tsikl po adresam kotorue vabirautsya psevdosluchayno in zadannogo macciva.
