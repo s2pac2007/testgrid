@@ -61,12 +61,14 @@ public class TestGridClassArray {
 
 		if (browser.equalsIgnoreCase("firefox")) {
 			System.out.println(" Executing on FireFox in VM");
-			String Node = "http://192.168.137.129:4444/wd/hub";
+			String Node = "http://192.168.85.129:4444/wd/hub";
 			DesiredCapabilities cap = DesiredCapabilities.firefox();
 			cap.setBrowserName("firefox");
-			cap.setCapability("marionette", false);
+			cap.setPlatform(Platform.ANY);
+			cap.setVersion("46.0");
+			cap.setCapability("marionette", true);			
 			driver = new RemoteWebDriver(new URL(Node), cap);
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		} else if (browser.equalsIgnoreCase("local")){
 			driver = new ChromeDriver();	
 			File file = new File("./chromedriver.exe");
@@ -114,19 +116,68 @@ public class TestGridClassArray {
 		//	throw new IllegalArgumentException("The Browser Type is Undefined");
 		//}
 	}
-
+	@Test
+	public void idupeshcomVideo() throws Exception {
+		String baseUrl = "http://idupesh.com";
+		driver.get(baseUrl + "/");
+		List<WebElement> elems = driver.findElements(By.xpath("//ul[@id='dj-megamenu145']/li"));
+		WebElement webEle = null;
+		System.out.println("Cycle for idupesh.com menu started with "+elems.size()+" elements");
+		System.out.println("!--------------------------------------------------------!");
+		driver.switchTo().defaultContent();
+				
+	for (int i=2; i<=elems.size(); i++){
+		System.out.println(i);
+		webEle=driver.findElement(By.xpath("//ul[@id='dj-megamenu145']/li["+i+"]"));
+		webEle.click();
+		System.out.println("Clicked menu "+i);
+		List<WebElement> elFrame = driver.findElements(By.xpath("//*/iframe"));
+		System.out.println("Count of Frames on page "+elFrame.size());
+		for (int f=0;f<elFrame.size();f++){
+			driver.switchTo().frame(f);
+			System.out.println("Switched to frame number  "+f);
+			//WebDriverWait wait = new WebDriverWait(driver, 60);
+			//wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@class='ytp-large-play-button ytp-button']")));
+			
+					try
+						{
+							System.out.println("Video title "+driver.findElement(By.xpath("//a[@class='ytp-title-link yt-uix-sessionlink']")).getText());
+						} 
+					catch(NoSuchElementException e)
+						{
+							e.printStackTrace();
+							System.out.println("Title of video not found in selected Frame number " +f);
+						}					
+					
+					try
+						{
+							driver.findElement(By.xpath("//button[@class='ytp-large-play-button ytp-button']")).click();
+							//Thread.sleep(2000);
+							System.out.println("Video in Frame "+f+" clicked ");
+						} 
+					catch(NoSuchElementException e)
+						{
+							e.printStackTrace();
+							System.out.println("NoSuchElementException " +f);
+						}
+			driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+			driver.switchTo().defaultContent();
+		}
+	}
+	}
+	
 	@Test
 	public void idupeshcomMenu() throws Exception {
 	String baseUrl = "http://idupesh.com";
 	driver.get(baseUrl + "/");
 	List<WebElement> elems = driver.findElements(By.xpath("//ul[@id='dj-megamenu145']/li"));
 	WebElement webEle = null;
-	System.out.println("Cicle for idupesh.com menu started with "+elems.size()+" elements");
+	System.out.println("Cycle for idupesh.com menu started with "+elems.size()+" elements");
 	for (int i=1; i<=elems.size(); i++){
 	driver.switchTo().defaultContent();
 	webEle=driver.findElement(By.xpath("//ul[@id='dj-megamenu145']/li["+i+"]"));
 	webEle.click();
-	driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+	//driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
 	System.out.println("!--------------------------------------------------------!");
 	//System.out.println(driver.findElement(By.xpath("//ul[@id='dj-megamenu145']/li["+i+"]")).getText());
 	System.out.println("Clicked menu "+i+" "+driver.findElement(By.xpath("//ul[@id='dj-megamenu145']/li["+i+"]/a")).getText());
@@ -137,7 +188,8 @@ public class TestGridClassArray {
 			
 	if (elFrame.size()!=0){
 			System.out.println("Count of Frames on page "+elFrame.size());
-			for (int n=0; n<elFrame.size(); n++){
+			for (int n=0; n<=1; n++){
+			//for (int n=0; n<elFrame.size(); n++){
 				int s=n+1;
 				System.out.println("Current number of video frame is "+s);
 				WebDriverWait waitPagination = new WebDriverWait(driver, 5);
@@ -145,15 +197,18 @@ public class TestGridClassArray {
 				//waitPagination.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//ul[@class='nspPagination']")));
 				//driver.findElement(By.xpath("//ul[@class='nspPagination']/li["+s+"]/a")).click();
 					System.out.println("Searching for nspPagination buttons on the page ");
+					List<WebElement> Paginations = driver.findElements(By.xpath("//ul[@class='nspPagination']"));
 				if (driver.findElements(By.xpath("//ul[@class='nspPagination']")).size()!=0){
 					driver.findElement(By.xpath("//ul[@class='nspPagination']/li["+s+"]/a")).click();
-					System.out.println("Found nspPagination and clicked " +s);
+					System.out.println("Found nspPagination and clicked ");
 					}					
 				else{
 					System.out.println("Not found nspPagination on the page ");
 					}
 				driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
-				driver.switchTo().frame(n);
+				
+			for (int f=0; f<=Paginations.size(); f++){
+				driver.switchTo().frame(f);
 				System.out.println("Switched to frame number  "+n+" text "+driver.findElement(By.xpath("//a[@class='ytp-title-link yt-uix-sessionlink']")).getText());
 				WebDriverWait wait = new WebDriverWait(driver, 60);
 				wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@class='ytp-large-play-button ytp-button']")));
@@ -172,10 +227,10 @@ public class TestGridClassArray {
 					catch(NoSuchElementException e)
 						{
 							e.printStackTrace();
-							System.out.println("NoSuchElementException " +n);
+							System.out.println("NoSuchElementException " +f);
 						}
-				
 				driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+			}
 				driver.switchTo().defaultContent();	
 				System.out.println("Frame "+n+" switched to defaultContent ");
 				//driver.findElement(By.xpath("//ul[@id='dj-megamenu145']/li["+i+"]")).click();

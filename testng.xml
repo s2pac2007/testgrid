@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
- <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--<include name="idupeshcomMenu" /> <include name="idupeshcomLinks" />-->
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="ScheduleBusTest" parallel="tests" thread-count="5" >
    <test name="FirefoxTest">
    <parameter name="browser"  value="Firefox" />
@@ -8,8 +9,7 @@
       <classes>
             <class name="testgrid.TestGridClassArray" />
 			    <methods>
-					<include name="idupeshcomMenu" />
-					<include name="idupeshcomLinks" />
+					<include name="idupeshcomVideo" />
 				</methods>
       </classes>
    </test>
