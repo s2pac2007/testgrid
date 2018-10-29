@@ -61,7 +61,8 @@ public class TestGridClassArray {
 
 		if (browser.equalsIgnoreCase("firefox")) {
 			System.out.println(" Executing on FireFox in VM");
-			String Node = "http://192.168.85.129:4444/wd/hub";
+			//String Node = "http://192.168.85.129:4444/wd/hub";
+			String Node = "http://localhost:4444/wd/hub";
 			DesiredCapabilities cap = DesiredCapabilities.firefox();
 			cap.setBrowserName("firefox");
 			cap.setPlatform(Platform.ANY);
@@ -139,32 +140,38 @@ public class TestGridClassArray {
 			//WebDriverWait wait = new WebDriverWait(driver, 60);
 			//wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@class='ytp-large-play-button ytp-button']")));
 			
-					try
-						{
-							System.out.println("Video title "+driver.findElement(By.xpath("//a[@class='ytp-title-link yt-uix-sessionlink']")).getText());
-						} 
-					catch(NoSuchElementException e)
-						{
-							e.printStackTrace();
-							System.out.println("Title of video not found in selected Frame number " +f);
-						}					
+			if 	(isElementPresent(By.xpath("//a[@class='ytp-title-link yt-uix-sessionlink']"))==true){
+				System.out.println("Video title "+driver.findElement(By.xpath("//a[@class='ytp-title-link yt-uix-sessionlink']")).getText());
+			}	else {
+				System.out.println("Title of video not found in selected Frame number " +f);
+			}
+			
+			if 	(isElementPresent(By.xpath("//button[@class='ytp-large-play-button ytp-button']"))==true){
+				driver.findElement(By.xpath("//button[@class='ytp-large-play-button ytp-button']")).click();
+				Thread.sleep(10000);
+				System.out.println("Video in Frame "+f+" clicked ");
+			}	else {
+				System.out.println("NoSuchElementException " +f);
+			}
+
 					
-					try
-						{
-							driver.findElement(By.xpath("//button[@class='ytp-large-play-button ytp-button']")).click();
-							//Thread.sleep(2000);
-							System.out.println("Video in Frame "+f+" clicked ");
-						} 
-					catch(NoSuchElementException e)
-						{
-							e.printStackTrace();
-							System.out.println("NoSuchElementException " +f);
-						}
-			driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+
+			//driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
 			driver.switchTo().defaultContent();
 		}
 	}
 	}
+	private boolean isElementPresent(By by) {  
+    driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);  
+    try {  
+        driver.findElement(by);  
+        return true;  
+    } catch (NoSuchElementException e) {  
+        return false;  
+    } finally {  
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);  
+    }  
+}
 	
 	@Test
 	public void idupeshcomMenu() throws Exception {
