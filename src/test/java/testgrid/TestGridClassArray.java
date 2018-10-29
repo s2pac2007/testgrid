@@ -61,8 +61,8 @@ public class TestGridClassArray {
 
 		if (browser.equalsIgnoreCase("firefox")) {
 			System.out.println(" Executing on FireFox in VM");
-			//String Node = "http://192.168.85.129:4444/wd/hub";
-			String Node = "http://localhost:4444/wd/hub";
+			String Node = "http://192.168.85.129:4444/wd/hub";
+			//String Node = "http://localhost:4444/wd/hub";
 			DesiredCapabilities cap = DesiredCapabilities.firefox();
 			cap.setBrowserName("firefox");
 			cap.setPlatform(Platform.ANY);
