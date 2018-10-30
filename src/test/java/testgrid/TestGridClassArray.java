@@ -159,7 +159,34 @@ public class TestGridClassArray {
 			//driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
 			driver.switchTo().defaultContent();
 		}
+
 	}
+	}
+	@Test
+	public void idupeshcomArticles() throw InterruptedException{
+		String baseUrl = "http://idupesh.com";
+		driver.get(baseUrl + "/");
+		List<WebElement> elems = driver.findElements(By.xpath("//ul[@id='dj-megamenu145']/li"));
+		WebElement webEle = null;
+		System.out.println("Cycle for idupesh.com menu started with "+elems.size()+" elements");
+		System.out.println("!--------------------------------------------------------!");
+		driver.switchTo().defaultContent();
+		for (int i=1; i<=elems.size(); i++){
+		
+			if (isElementPresent(By.xpath("//a[@class='mod-articles-category-title']"))==true){
+					List<WebElement> elArticles = driver.findElements(By.xpath("//a[@class='mod-articles-category-title']"));
+					System.out.println("Count of Articles on page "+elArticles.size());
+				for (WebElement myElement : elArticles.size()){
+					myElement.click();	
+					Thread.sleep(60000);
+					//driver.navigate().to(appUrl);
+					driver.navigate().back();
+				}
+			} else {
+					System.out.println("Articles in current menu not found " +i);
+					}
+				
+		}		
 	}
 	private boolean isElementPresent(By by) {  
     driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);  
