@@ -163,7 +163,7 @@ public class TestGridClassArray {
 	}
 	}
 	@Test
-	public void idupeshcomArticles() throw InterruptedException{
+	public void idupeshcomArticles() throws InterruptedException {
 		String baseUrl = "http://idupesh.com";
 		driver.get(baseUrl + "/");
 		List<WebElement> elems = driver.findElements(By.xpath("//ul[@id='dj-megamenu145']/li"));
@@ -172,12 +172,16 @@ public class TestGridClassArray {
 		System.out.println("!--------------------------------------------------------!");
 		driver.switchTo().defaultContent();
 		for (int i=1; i<=elems.size(); i++){
-		
-			if (isElementPresent(By.xpath("//a[@class='mod-articles-category-title']"))==true){
-					List<WebElement> elArticles = driver.findElements(By.xpath("//a[@class='mod-articles-category-title']"));
+		System.out.println(i);
+		webEle=driver.findElement(By.xpath("//ul[@id='dj-megamenu145']/li["+i+"]"));
+		webEle.click();
+		System.out.println("Clicked menu "+i);
+			if (isElementPresent(By.xpath("//a[@class='mod-articles-category-title ']"))==true){
+					List<WebElement> elArticles = driver.findElements(By.xpath("//a[@class='mod-articles-category-title ']"));
 					System.out.println("Count of Articles on page "+elArticles.size());
-				for (WebElement myElement : elArticles.size()){
+				for (WebElement myElement : elArticles){
 					myElement.click();	
+					System.out.println(myElement.getText()+" clicked");
 					Thread.sleep(60000);
 					//driver.navigate().to(appUrl);
 					driver.navigate().back();
