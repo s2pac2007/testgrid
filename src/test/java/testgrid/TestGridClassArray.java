@@ -127,7 +127,7 @@ public class TestGridClassArray {
 		System.out.println("!--------------------------------------------------------!");
 		driver.switchTo().defaultContent();
 				
-	for (int i=2; i<=elems.size(); i++){
+	for (int i=1; i<=elems.size(); i++){
 		System.out.println(i);
 		webEle=driver.findElement(By.xpath("//ul[@id='dj-megamenu145']/li["+i+"]"));
 		webEle.click();
@@ -173,102 +173,9 @@ public class TestGridClassArray {
     }  
 }
 	
-	@Test
-	public void idupeshcomMenu() throws Exception {
-	String baseUrl = "http://idupesh.com";
-	driver.get(baseUrl + "/");
-	List<WebElement> elems = driver.findElements(By.xpath("//ul[@id='dj-megamenu145']/li"));
-	WebElement webEle = null;
-	System.out.println("Cycle for idupesh.com menu started with "+elems.size()+" elements");
-	for (int i=1; i<=elems.size(); i++){
-	driver.switchTo().defaultContent();
-	webEle=driver.findElement(By.xpath("//ul[@id='dj-megamenu145']/li["+i+"]"));
-	webEle.click();
-	//driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
-	System.out.println("!--------------------------------------------------------!");
-	//System.out.println(driver.findElement(By.xpath("//ul[@id='dj-megamenu145']/li["+i+"]")).getText());
-	System.out.println("Clicked menu "+i+" "+driver.findElement(By.xpath("//ul[@id='dj-megamenu145']/li["+i+"]/a")).getText());
-	
-	List<WebElement> elFrame = driver.findElements(By.tagName("iframe"));
-	            //for (WebElement elFramename : elFrame)
-               // System.out.println("frameid: " + elFramename.getAttribute("title"));  
-			
-	if (elFrame.size()!=0){
-			System.out.println("Count of Frames on page "+elFrame.size());
-			for (int n=0; n<=1; n++){
-			//for (int n=0; n<elFrame.size(); n++){
-				int s=n+1;
-				System.out.println("Current number of video frame is "+s);
-				WebDriverWait waitPagination = new WebDriverWait(driver, 5);
-				//waitPagination.ignoring(NoSuchElementException.class);
-				//waitPagination.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//ul[@class='nspPagination']")));
-				//driver.findElement(By.xpath("//ul[@class='nspPagination']/li["+s+"]/a")).click();
-					System.out.println("Searching for nspPagination buttons on the page ");
-					List<WebElement> Paginations = driver.findElements(By.xpath("//ul[@class='nspPagination']"));
-				if (driver.findElements(By.xpath("//ul[@class='nspPagination']")).size()!=0){
-					driver.findElement(By.xpath("//ul[@class='nspPagination']/li["+s+"]/a")).click();
-					System.out.println("Found nspPagination and clicked ");
-					}					
-				else{
-					System.out.println("Not found nspPagination on the page ");
-					}
-				driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
-				
-			for (int f=0; f<=Paginations.size(); f++){
-				driver.switchTo().frame(f);
-				System.out.println("Switched to frame number  "+n+" text "+driver.findElement(By.xpath("//a[@class='ytp-title-link yt-uix-sessionlink']")).getText());
-				WebDriverWait wait = new WebDriverWait(driver, 60);
-				wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@class='ytp-large-play-button ytp-button']")));
-				//WebElement element=driver.findElement(By.xpath("//button[@class='ytp-large-play-button ytp-button']"));
-				//Actions actions = new Actions(driver);
-				//actions.moveToElement(element).click().perform();
-							
-					try
-						{
-							driver.findElement(By.xpath("//button[@class='ytp-large-play-button ytp-button']")).click();
-//							Thread.sleep(2000);
-							//driver.findElement(By.xpath("//button[@class='ytp-play-button ytp-button']")).click();
-							//Thread.sleep(2000);
-							System.out.println("Video in Frame "+n+" clicked ");
-						} 
-					catch(NoSuchElementException e)
-						{
-							e.printStackTrace();
-							System.out.println("NoSuchElementException " +f);
-						}
-				driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
-			}
-				driver.switchTo().defaultContent();	
-				System.out.println("Frame "+n+" switched to defaultContent ");
-				//driver.findElement(By.xpath("//ul[@id='dj-megamenu145']/li["+i+"]")).click();
-				//driver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
-				//System.out.println("Menu  "+driver.findElement(By.xpath("//ul[@id='dj-megamenu145']/li["+i+"]")).getText()+" clicked");
-			}
-			
-			
-		}
-	else {
-		System.out.println("No Frames on the page");
-	}
-	//driver.findElement(By.xpath("//button[@class='ytp-large-play-button ytp-button']")).click();
-
-
-	//driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
-	//Thread.sleep(60000);
-	}
-	
-	//driver.switch_to_default_content(); //*[@id="nsp-nsp-113"]/div[1]/div[2]/div/div[3]/div/div/iframe
 	
 	
-
-	driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
-	//Thread.sleep(60000);
-    //driver.quit();
-  }
-
-	
-	
-	@Test (dependsOnMethods={"idupeshcomMenu"})
+	@Test (dependsOnMethods={"idupeshcomVideo"})
 	public void idupeshcomLinks() throws InterruptedException {
 		
 //Sdelal vlogenniy tsikl po adresam kotorue vabirautsya psevdosluchayno in zadannogo macciva.
@@ -308,9 +215,9 @@ public class TestGridClassArray {
 		}	
 			   
 		
-	//	driver.get("https://www.youtube.com/watch?v=yKeXgQ5yDAM");
-	//	driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
-	//	Thread.sleep(120000);
+		//driver.get("https://www.youtube.com/watch?v=yKeXgQ5yDAM");
+		//driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+		//Thread.sleep(120000);
 		
 		//driver.get("https://www.youtube.com/watch?v=KPQhbSKx0E8");
 		//driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
