@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="ScheduleBusTest" duration-ms="574239" started-at="2018-11-05T16:42:04Z" finished-at="2018-11-05T16:51:38Z">
+    <groups>
+    </groups>
+    <test name="FirefoxTest" duration-ms="574239" started-at="2018-11-05T16:42:04Z" finished-at="2018-11-05T16:51:38Z">
+      <class name="testgrid.TestGridClassArray">
+        <test-method status="PASS" signature="launchbrowser(java.lang.String, java.lang.String, java.lang.String)" name="launchbrowser" is-config="true" duration-ms="4464" started-at="2018-11-05T16:42:04Z" finished-at="2018-11-05T16:42:08Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Firefox]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[no]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[http://VnJdYspX86LUiKJZdHRyIkd70FXAgEt1:R35Flktkg54pGEfJcW8K6bHXGvnNZHEG@44CH9W50.gridlastic.com:80/wd/hub]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="idupeshcomArticles()" name="idupeshcomArticles" duration-ms="569628" started-at="2018-11-05T16:42:08Z" finished-at="2018-11-05T16:51:38Z">
+        </test-method>
+        <test-method status="PASS" signature="closeBrowser()" name="closeBrowser" is-config="true" duration-ms="139" started-at="2018-11-05T16:51:38Z" finished-at="2018-11-05T16:51:38Z">
+        </test-method>
+      </class>
+    </test>
+  </suite>
+</testng-results>
