@@ -165,29 +165,42 @@ public class TestGridClassArray {
 	@Test
 	public void idupeshcomArticles() throws InterruptedException {
 		String baseUrl = "http://idupesh.com";
+		String[] links = null;
 		driver.get(baseUrl + "/");
 		List<WebElement> elems = driver.findElements(By.xpath("//ul[@id='dj-megamenu145']/li"));
 		WebElement webEle = null;
 		System.out.println("Cycle for idupesh.com menu started with "+elems.size()+" elements");
-		System.out.println("!--------------------------------------------------------!");
+		System.out.println("!++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!");
 		driver.switchTo().defaultContent();
 		for (int i=1; i<=elems.size(); i++){
 		System.out.println(i);
 		webEle=driver.findElement(By.xpath("//ul[@id='dj-megamenu145']/li["+i+"]"));
 		webEle.click();
 		System.out.println("Clicked menu "+i);
+
+
 			if (isElementPresent(By.xpath("//a[@class='mod-articles-category-title ']"))==true){
 					List<WebElement> elArticles = driver.findElements(By.xpath("//a[@class='mod-articles-category-title ']"));
-					System.out.println("Count of Articles on page "+elArticles.size());
-				for (WebElement myElement : elArticles){
-					myElement.click();	
-					System.out.println(myElement.getText()+" clicked");
+					links= new String[elArticles.size()];
+					System.out.println("Total number of links Available: "+elArticles.size());
+				for(int s=0;s<elArticles.size();s++)
+					{
+					links[s] = elArticles.get(s).getAttribute("href");
+					System.out.println(elArticles.get(s).getAttribute("href"));
+					} 
+					System.out.println("Count of articles in array is "+elArticles.size());
+					
+				for (int l=0;l<elArticles.size();l++ )
+					{
+					//System.out.println(elArticles.get(l).getAttribute("href"));
+					driver.navigate().to(links[l]);
+					System.out.println(links[l]+" clicked");
 					Thread.sleep(60000);
 					//driver.navigate().to(appUrl);
-					driver.navigate().back();
-				}
+					//driver.navigate().back();
+					}
 			} else {
-					System.out.println("Articles in current menu not found " +i);
+					System.out.println("Articles in current menu "+i+" not found " );
 					}
 				
 		}		
