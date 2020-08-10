@@ -1,5 +1,5 @@
-testgrid\TestGridClassArray.class
-com\example\tests\idupeshcomvideo.class
-testgrid\TestGridClass.class
-testgrid\TestGridClassSecond.class
-testgrid\qqqq.class
+com/example/tests/idupeshcomvideo.class
+testgrid/qqqq.class
+testgrid/TestGridClass.class
+testgrid/TestGridClassArray.class
+testgrid/TestGridClassSecond.class

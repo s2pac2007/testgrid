@@ -21,7 +21,12 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.*;
+
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.firefox.FirefoxBinary;
+import org.openqa.selenium.firefox.FirefoxProfile;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.interactions.Actions;
@@ -61,23 +66,41 @@ public class TestGridClassArray {
 
 		if (browser.equalsIgnoreCase("firefox")) {
 			System.out.println(" Executing on FireFox in VM");
-			//String Node = "http://192.168.85.129:4444/wd/hub";					
-			//String Node = "http://localhost:4444/wd/hub";
-			String Node = "http://localhost:4444/wd/hub";
-			DesiredCapabilities cap = DesiredCapabilities.firefox();
-			cap.setBrowserName("firefox");
-			cap.setPlatform(Platform.ANY);
-			cap.setVersion("46.0");
-			cap.setCapability("marionette", true);			
-			driver = new RemoteWebDriver(new URL(Node), cap);
+			
+      FirefoxBinary firefoxBinary = new FirefoxBinary();
+      firefoxBinary.addCommandLineOptions("--headless");
+      
+      FirefoxProfile profile = new FirefoxProfile();      
+      profile.setPreference("javascript.enabled", true);
+      
+      DesiredCapabilities cap = DesiredCapabilities.firefox();
+      cap.setBrowserName("firefox");
+			//cap.setPlatform(Platform.);
+			//cap.setVersion("78.0.1");
+			cap.setCapability("marionette", true);
+      cap.setCapability("headless", true);
+      //cap.setCapability(FirefoxDriver.PROFILE, profile);
+			
+      FirefoxOptions options = new FirefoxOptions();
+			options.setBinary(firefoxBinary);
+      //options.setHeadless(true); 
+      //options.add_argument("-headless");
+      
+      //options.merge(cap);
+      
+      System.setProperty("webdriver.gecko.driver", "/usr/dev/selenium/geckodriver");			
+			String Node = "http://185.233.116.71:4444/wd/hub";
+			      			
+			driver = new RemoteWebDriver(new URL(Node),cap);
+  	  //driver = new FirefoxDriver(options);
+    
 			//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		} else if (browser.equalsIgnoreCase("local")){
 			driver = new ChromeDriver();	
 			File file = new File("./chromedriver.exe");
 			System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
 			String ExpTitle = "Welcome: Mercury Tours";
-		}
-		else if (browser.equalsIgnoreCase("chrome")) {
+		}	else if (browser.equalsIgnoreCase("chrome")) {
 			System.out.println(" Executing on CHROME in Lunix");
 			DesiredCapabilities cap = DesiredCapabilities.chrome();
 			cap.setBrowserName("chrome");
