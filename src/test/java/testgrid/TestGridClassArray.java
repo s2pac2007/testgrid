@@ -11,7 +11,6 @@ import java.util.regex.Pattern;
 import java.lang.InterruptedException;
 import java.lang.Math;
 import java.io.File;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.Platform;
@@ -150,8 +149,9 @@ public class TestGridClassArray {
 		System.out.println("Cycle for idupesh.com menu started with "+elems.size()+" elements");
 		System.out.println("!--------------------------------------------------------!");
 		driver.switchTo().defaultContent();
-				
-	for (int i=1; i<=elems.size(); i++){
+	// Clicks only for Menu News i=4			
+	//for (int i=1; i<=elems.size(); i++){
+ for (int i=1; i<=4; i++){
 		System.out.println(i);
 		webEle=driver.findElement(By.xpath("//ul[@id='dj-megamenu145']/li["+i+"]"));
 		webEle.click();

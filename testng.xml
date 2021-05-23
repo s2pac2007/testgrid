@@ -9,7 +9,7 @@
       <classes>
             <class name="testgrid.TestGridClassArray" />
 			    <methods>
-					<include name="idupeshcomVideo" />
+					<include name="idupeshcomArticles" />
 				</methods>
       </classes>
    </test>
