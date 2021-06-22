@@ -196,7 +196,7 @@ public class TestGridClassArray {
 		System.out.println("Cycle for idupesh.com menu started with "+elems.size()+" elements");
 		System.out.println("!++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!");
 		driver.switchTo().defaultContent();
-		for (int i=2; i<=elems.size(); i++){
+		for (int i=4; i<=elems.size(); i++){
 		System.out.println(i);
 		webEle=driver.findElement(By.xpath("//ul[@id='dj-megamenu145']/li["+i+"]"));
 		webEle.click();
