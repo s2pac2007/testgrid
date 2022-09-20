@@ -183,6 +183,7 @@ public class TestGridClassArray {
 			//driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
 			driver.switchTo().defaultContent();
 		}
+		driver.navigate().back();
 
 	}
 	}
