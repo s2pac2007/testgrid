@@ -226,7 +226,8 @@ public class TestGridClassArray {
 			} else {
 					System.out.println("Articles in current menu "+i+" not found " );
 					}
-				
+			
+		driver.navigate().back();
 		}		
 	}
 	private boolean isElementPresent(By by) {  
